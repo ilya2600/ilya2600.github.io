@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Website</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../templates/table.css">
+    <link rel="stylesheet" href="../templates/header.css">
+    <link rel="icon" type="image/x-icon" href="logo/favicon.ico">
+</head>
+
+<body>
+    <header>
+        <div class="logo-name">
+            <a href="index.html"><img src="../logo/logo.png"></a>
+            <h1>WEBSITE NAME</h1>
+        </div>
+        <div class="header-menu">
+            <ul>
+                <li><a href="">abc</a></li>
+                <li><a href="">def</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="main">
+        <nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="performSearch()">^</button>
+            </div>
+            <div class="side-menu">
+                <ul class="side-menu-list1">
+                    <li>
+                        <a href="pages/introduction.html">Home</a>
+                        <ul class="side-menu-list2">
+                            <li><a href="pages/introduction.html">Test</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h1>Contents</h1>
+            <p>Lorem ipsum dolor sit amet. Lorem25</p>
+            <table>
+                <thead>
+                    <tr>
+                        <td> HELLO </td>
+                        <td> LOREM </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> HELLO </td>
+                        <td> LOREM </td>
+                    </tr>
+                    <tr>
+                        <td> HELLO </td>
+                        <td> LOREM </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td> HELLO </td>
+                        <td> LOREM </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <footer> FOOTER </footer>
+    <script src=scripts.js></script>
+</body></html>
