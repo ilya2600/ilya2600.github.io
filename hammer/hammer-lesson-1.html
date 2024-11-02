@@ -16,6 +16,11 @@
             font-family: sans-serif
         }
 
+        ol {
+            font-size: 20px;
+            font-family: sans-serif
+        }
+
         .generic-container {
             background-color: antiquewhite;
             margin: 10px;
@@ -33,9 +38,9 @@
         img {
             width: 100%;
         }
-        
-        .img-div{
-            display:flex;
+
+        .img-div {
+            display: flex;
             justify-content: center;
         }
     </style>
@@ -44,19 +49,165 @@
 <body>
 
     <div class="generic-container">
-       <a href="hammer-main.html">Назад</a>
+        <a href="hammer-main.html">Назад</a>
         <h2>Урок #1: Настройка и Создания Первого Уровня. </h2>
         <div class="img-div">
             <img src="https://cdn2.steamgriddb.com/icon/58766b2804f2d263ecd81e805e8a907b.ico" alt="" width=500px style="max-width: 150px">
         </div>
         <p>
-            Для создания HL2 уровней в движке Source Engine, используя редактор Hammer Editor, необходима купленная копия Half-Life 2. Если у вас нет купленной копии HL2, можете приобрести её здесь: <a href="https://drive.google.com/drive/folders/1x-rAfGlU6Oedf9fXFmGkOfPVGlp_E7EM?dmr=1&ec=wgc-drive-globalnav-goto" target="_blank"> ссылка на скачивание.</a>
+            Для создания HL2 уровней в движке Source Engine, используя редактор Hammer Editor, необходима купленная копия Half-Life 2. Если у вас нет купленной копии HL2, можете приобрести её здесь (если есть, перейдите <a href="#steam-hl2">ниже</a>): <a href="https://drive.google.com/drive/folders/1x-rAfGlU6Oedf9fXFmGkOfPVGlp_E7EM?dmr=1&ec=wgc-drive-globalnav-goto" target="_blank"> ссылка на скачивание.</a>
         </p>
-        <p>У вас будет один или другой вариант, как показано на картинке. Необходимо просто скачать архив "Half-Life 2.rar"</p>
+        <p>У вас будет один или другой вариант, как показано на картинке. Необходимо просто скачать архив "Half-Life 2.rar". Вам понадобится ~4 Гигабайта на вашем компьютере (Включая архив и распакованные файлы), поэтому проверьте что место на вашем компьютере достаточно.</p>
 
         <div class="img-div">
             <img src="hammer-lesson-1/1_dl_hl2.png" alt="" style="max-width: 800px">
         </div>
+
+        <p>Архив должен скачаться к вам в "Загрузки". Если у вас файл просто белый лист (📄), вам необходим архиватор, для создания и распаковки архивов. <a href="https://www.win-rar.com/postdownload.html?&L=4" target=_blank>WinRAR</a> или <a href="https://7-zip.org/a/7z2408-x64.exe" target=_blank>7zip</a>. Установите эти программы на вашем ПК.</p>
+
+        <i>
+            <p>Перенесите архив в удобное место, например в "Документы" или куда вам удобно.</p>
+        </i>
+
+        <p>Далее распакуйте архив, используя WinRAR или 7zip. Нажмите ЛКМ, чтобы выделить, а потом ПКМ чтобы открыть контектсное меню и выберете соответственные действия (экспортировать здесь или что-то такое), как на картинке.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/2_extract_hl2.jpg" alt="" style="max-width: 750px">
+        </div>
+        <br>
+        <div class="img-div">
+            <img src="hammer-lesson-1/2_extracted_hl2.jpg" alt="" style="max-width: 600px">
+        </div>
+
+        <p>Появится распакованная папка "Half-Life 2". В ней удалены стандартные уровни игры, чтобы снизить размер, зато доступны все необходимые файлы для создания своих уровней.</p>
+        <p id="steam-hl2"><b>Если у вас есть установленная копия HL2 в Steam</b>, вы можете найти такую же папку у себя по пути "Program Files/Steam/steamapps/common/Half-Life 2"</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/4_steam_hl2.jpg" alt="" style="max-width: 600px">
+        </div>
+
+        <p>Переходим в папку "bin" чтобы найти редактор Hammer Editor. Он будет называться просто как "hammer" или "hammer.exe". Откройте эту программу.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/5_binhammer_hl2.jpg" alt="" style="max-width: 700px">
+        </div>
+
+        <p>Если выйдет ошибка, которая говорит что "gameinfo.txt" отсутсвует, это значит, что файл "GameConfig.txt" неправильно указывает путь.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/6_gameconfigerror_hl2.jpg" alt="" style="max-width: 400px">
+        </div>
+
+        <p>Если выйдет ошибка, которая говорит что "gameinfo.txt" отсутсвует, это значит, что файл "GameConfig.txt" неправильно указывает путь. Удалите текстовой файл "GameConfig" и снова попробуйте открыть hammer. На второй картинке ниже показано как этот файл выглядет, если его открыть. Можете сверить, что вы выбрали правильный файл, и удалить его полностью из папки "bin"</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/6_deletegameconfig_hl2.jpg" alt="" style="max-width: 600px">
+        </div>
+        <div class="img-div">
+            <img src="hammer-lesson-1/6_gameconfigtxt_hl2.jpg" alt="" style="max-width: 700px">
+        </div>
+
+        <p>Запускаем hammer и откроется вот такой вид. Теперь создадим очень простой первый уровень. Откроем новый файл слева сверху.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/7_hammer_start.png" alt="" style="max-width: 800px">
+        </div>
+        <div class="img-div">
+            <img src="hammer-lesson-1/8_hammernewfile.jpg" alt="" style="max-width: 400px">
+        </div>
+
+        <p>Можете поменять размер окон, которые появится. Делайте это очень аккуратно, программа старая, если что-то открепить, резко двигать или лишнее что-то нажать, вы можете оказаться в неисправной ситуации и придется занаво устанавливать программу (в крайнем случае).</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/9_hammerviews.gif" alt="" style="max-width: 800px">
+        </div>
+
+        <p>Четыре окна таковы:</p>
+        <ol>
+            <li> Камера - 3D Вид</li>
+            <li> Вверх 2D (top) - X/Y</li>
+            <li> Перед 2D (front) - Y/Z</li>
+            <li> Бок 2D (side) - X/Z</li>
+        </ol>
+        <div class="img-div">
+            <img src="hammer-lesson-1/9_hammerviews.jpg" alt="" style="max-width: 800px">
+        </div>
+
+        <p>Теперь создадим простую фигуру, буквы "H". Начнем с инструмента "белый кубик". Выберем этот инструмент на левой панели инструментов, и в окне "вверх top" нарисуем кубик. Зажимаем ЛКМ и тянем. Чтобы применить фигуру (а это желательно делать сразу, даже если она не до конца настроена), нужно нажать ENTER на клавиатуре.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/10_letterh_1.JPG" alt="" style="max-width: 800px">
+        </div>
+        <p>Чтобы использовать камеру в 3Д виде, нужно навести курсор мыши на это окно и нажать кнопку Z. Теперь вы можете осматриваться и передвигаться используя WASD. Чтобы перестать использовать камеру, нажмите еще раз Z.</p>
+
+        <p>Используя инструмент выделения (красная стрелка, первый инструмент левой панели), можно созданную фигру перемешать и менять её размер, если она выделена. Чтобы снять выделение, нажать на пустоту в окнах, а чтобы снова выделить, нажать на объект в 3Д виде, или на края объекта в 2Д видах.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/10_letterh_2.JPG" alt="" style="max-width: 800px">
+        </div>
+
+        <p>Дорисуйте буквы "H" в виде сверху. Обратим внимание как фигура выглядет в разных окнах. Важно понимать для чего каждое окно, и как оно показывает нам уровень. Окно "вверх" позволяет менять долготу и ширину, а окна "сбоку" и "спереди" помогает менять высоту. Они необходимы для процесса создания карт (уровней).</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/10_letterh_fin.jpg" alt="" style="max-width: 800px">
+        </div>
+        
+        <p>Видео демонстрация создания буквы "H".</p>
+
+        <div class="img-div">
+            <video controls style="width:100%">
+                <source type="video/mp4" src="hammer-lesson-1/11_creating_h.mp4">
+            </video>
+        </div>
+        
+        <p>Далее, поставим точку спавна используя инструмент похожий на белую "пешку". При выборе пешки, просто щелкаем на то место, где хотим поставить спавн.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/12_placing_spawn.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        <p>Теперь, используя инструмент "белый кубик", создадим оболочку вокруг нашей буквы H. В движке Source Engine весь уровень всегда должен находится внутри какой-то оболочки, иначе будут утечки, которые приводят к серьезным ошибкам. Постарайтесь создать оболочку как на картинке.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/13_outer_shell.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        <p>При применении фигуры, выделите её (если она уже не выделена) и нажмите ПКМ по ней в любом 2Д окне. Выберете действие "Make Hollow" - Сделать Пустым.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/14_make_hollow_1.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        <p>Пишем значение "-32", для создания стен, шириной 32 в наружу.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/14_make_hollow_2.JPG" alt="" style="max-width: 400px">
+        </div>
+        
+        <p>У вас объект, который был наполнен и без пространтсва внутри, теперь будет иметь пустое место. Можно залететь внтурь, и увидеть, что образовалась комната. Также, на 2Д окнах, куб который мы создали, теперь состоит из множество кубиков, соединенных так, что они формируют квадратную оболочку.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/14_make_hollow_3.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        <p>Сохраним нашу работу, нажав на "Save" в "File". Подпишем название карты как "first_map_001" (Первая Карта 001). Используем такой формат названий, только английские буквы, только нижние подчеркивание вместо пробелов. Если вы назавете с пробелами или используя не английские символы, карта не запуститься.</p>
+
+        <div class="img-div">
+            <img src="hammer-lesson-1/15_save_1.JPG" alt="" style="max-width: 400px">
+        </div>
+        <div class="img-div">
+            <img src="hammer-lesson-1/15_save_2.JPG" alt="" style="max-width: 800px">
+        </div>
+        
+        <p>Теперь запустим карту для проверки. Оставьте место для галочки пустым и нажмите ОК. </p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/16_run_1.JPG" alt="" style="max-width: 300px">
+        </div>
+        <div class="img-div">
+            <img src="hammer-lesson-1/16_run_2.JPG" alt="" style="max-width: 400px">
+        </div>
+        <div class="img-div">
+            <img src="hammer-lesson-1/16_run_3.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        <p>Если вы сделали все как на картинках у вас запуститься игра на вашей карте. Выйте из игры можно нажав ESC и QUIT и продолжить работу. Вы сделали первую карту, но еще необходимо много знать, для правильного процесса создания карт. Правильный подход, позволит вам избежать вылетаний программы, потерь ваших работ и серьезных ошибок. О всех этих моментах разберем в будущих уроках.</p>
+        <div class="img-div">
+            <img src="hammer-lesson-1/16_run_4.JPG" alt="" style="max-width: 700px">
+        </div>
+        
+        
 
     </div>
 
