@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .product-page {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            max-width: 100%;
+            width: 50%;
+            height: 50%;
+            border-radius: 8px;
+        }
+
+        .product-description {
+            margin: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .product-imgdesc {
+            display: flex;
+        }
+        
+        .product-imgdesc div{
+            margin: 10px;
+        }
+        
+        .product-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #1be049;
+            font-weight: bold;
+        }
+
+        .characteristics-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .characteristics-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .characteristics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .characteristic-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .characteristic-value {
+            color: #333;
+        }
+
+        a {
+            color: #ffffff;
+            background-color: gray;
+            text-align: center;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-page">
+
+        <div class="product-imgdesc">
+            <img class="product-image" src="qrcode.png" alt="Product Image">
+            <div>
+                <div class="product-title">Название</div>
+                <div class="product-price">1900 руб</div>
+                <p class="product-description">This is a great product that offers amazing features and benefits. It is designed to meet your needs and exceed your expectations.</p>
+            </div>
+        </div>
+
+        <ul class="characteristics-list">
+            <li>
+                <div class="characteristic-label">Цвет:</div>
+                <div class="characteristic-value">Красный</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Размер:</div>
+                <div class="characteristic-value">Средний</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Вес:</div>
+                <div class="characteristic-value">1.5 кг</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Материал:</div>
+                <div class="characteristic-value">Алюминий</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Гарантия:</div>
+                <div class="characteristic-value">2 years</div>
+            </li>
+        </ul>
+        <a href="shop.html">Обратно на главную страницу</a>
+    </div>
+</body></html>
