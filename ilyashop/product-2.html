@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .product-page {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            max-width: 100%;
+            width: 50%;
+            height: 50%;
+            border-radius: 8px;
+        }
+
+        .product-description {
+            margin: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .product-imgdesc {
+            display: flex;
+        }
+        
+        .product-imgdesc div{
+            margin: 10px;
+        }
+        
+        .product-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #1be049;
+            font-weight: bold;
+        }
+
+        .characteristics-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .characteristics-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .characteristics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .characteristic-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .characteristic-value {
+            color: #333;
+        }
+
+        a {
+            color: #ffffff;
+            background-color: gray;
+            text-align: center;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-page">
+
+        <div class="product-imgdesc">
+            <a href="/ilyashopsecret.html"><img class="product-image" src="%D0%BF%D0%B8%D1%81%D1%82%D0%BE%D0%BB%D0%B5%D1%82%20%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9.webp" alt="Product Image"></a>
+        <div>
+                <div class="product-title">Пистолет с пистонами</div>
+                <div class="product-price">516 руб</div>
+                <p class="product-description">Информация о технических характеристиках, комплекте поставки, стране изготовления, внешнем виде и цвете товара носит справочный характер и основывается на последних доступных к моменту публикации сведениях</p>
+            </div>
+        </div>
+
+        <ul class="characteristics-list">
+            <li>
+                <div class="characteristic-label">Тип:</div>
+                <div class="characteristic-value">Игрушечное оружие</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Вид игрушечного оружия:</div>
+                <div class="characteristic-value">Пистолет</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Вид патроны:</div>
+                <div class="characteristic-value">Патроны</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Дополнительные функции:</div>
+                <div class="characteristic-value">Алюминий</div>
+            </li>
+            <li>
+                <div class="characteristic-label">Материал:</div>
+                <div class="characteristic-value">Металл металлический сплав</div>
+            </li>
+        </ul>
+        <a href="shop.html">Обратно на главную страницу</a>
+    </div>
+</body></html>
