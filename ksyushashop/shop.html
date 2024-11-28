@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+            z-index: 1000;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('images.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+			background-color: #ffffff;
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #e6f9ff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 50%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="images.jpg" alt="ima">
+            <h1>Добро пожаловать в наш магазин!</h1>
+            <p>Найдите лучшие товары здесь</p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+           
+            <!-- Карточка -->
+            <a href="product-1.html" class="card">
+                <div class="card-content">
+                    <img src="3F3F3F3F_3F_3F_3F3F3F.webp" alt="Картинка">
+                    <div class="card-title">Чича</div>
+                    <div class="card-price">1 копейка</div>
+                    <div class="card-description">
+                        
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="" class="card">
+                <div class="card-content">
+                    <img src="3F3F3F3F_3F3F_3F_3F3F3F.webp" alt="Картинка">
+                    <div class="card-title">Дедуля</div>
+                    <div class="card-price">1 руб</div>
+                    <div class="card-description">
+                       Загадочный консультант ритуального бюро «Ваншэн». Красив, обладает изящными манерами и выдающимся интеллектом.Происхождение Чжун Ли неизвестно, но он отлично знаком с правилами этикета и хорошими манерами...
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="" class="card">
+                <div class="card-content">
+                    <img src="liuyun.webp" alt="Картинка">
+                    <div class="card-title">Птичка</div>
+                    <div class="card-price">5 руб</div>
+                    <div class="card-description">
+                      Когда речь заходит о Сянь Юнь, всем есть что сказать: «высокая женщина с уложенными в причёску волосами», «ремесленница в очках», «болтливая новая соседка»... Сколько людей, столько и мнений, но, если обобщить, она создаёт впечатление весёлого, разговорчивого, доброго и дружелюбного человека.
+Сянь Юнь, в свою очередь, не считает себя такой. По её собственному мнению, она косноязычная, скромная, с чувством собственного достоинства. Она разбирается в механизмах, а также специализируется на создании различных мелких безделушек, что несколько расходится с тем образом, который сложился у окружающих.
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="" class="card">
+                <div class="card-content">
+                    <img src="VentiInfo.webp" alt="Картинка">
+                    <div class="card-title">Бардлюблюпиво</div>
+                    <div class="card-price">1 руб</div>
+                    <div class="card-description">
+                       Венти поселился в Мондштадте совсем недавно, и его заработок был намного ниже остальных бардов-мондштадтцев. Но завидев достаточную сумму в горшочке, будьте уверены, Венти потратит её в ближайшей таверне.
+
+Но несовершеннолетний облик Венти не позволяет ему купить алкоголь.
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши Контакты:</h3>
+        <ul>
+            <li>
+                <a href="#">+7 (999) 000-11-00</a>
+            </li>
+            <li>
+                <a href="#">shop@mail.com</a>
+            </li>
+            <li>
+                <a href="#">Telegram Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">VK</a>
+            </li>
+            <li>
+                <a href="#">Youtube</a>
+            </li>
+            <li>
+                <a href="#">Instagram</a>
+            </li>
+            <li>
+                <a href="#">Telegram Канал</a>
+            </li>
+            <li>
+                <a href="#">Dzen</a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
