@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Adventure Walking Simulator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #676767;
+            margin: 0px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 20px;
+            color: white;
+            background-color: #004b03;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+        .button-link:hover {
+            background-color: ы;
+        }
+
+        .button-link:active {
+            transform: scale(0.9);
+        }
+        img{
+            width: 20%;
+        }
+        
+        #secretmsg{
+            opacity:0;
+        }
+        #secretmsg:hover{
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+   <p id="secretmsg">Шлёпа лучший друг)</p>
+    <h1>Шлёпа с пельменями</h1>
+    <img src="shlepe.jpg" alt="Scene 1">
+    <br>
+    
+    <p>Вы нашли маленькую шлёпу что будете делать?</p>
+    
+    <div>
+        <a href="creeper-yes.html" class="button-link">Бросить и пойти дальше</a>
+        <a href="creeper-no.html" class="button-link">Взять с собой</a>
+    </div>
+
+</body>
+</html>
