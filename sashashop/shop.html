@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAqnfdY6hQPOaqcHfIwXk-NT0eZMMkNFdDCg&s');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background-color: rgba(0, 45, 131, 0.75);
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAqnfdY6hQPOaqcHfIwXk-NT0eZMMkNFdDCg&s" alt="">
+            <h1>Добро пожаловать в наш магазин!</h1>
+            <p>Найдите САМЫЕ ТУПЫЕ товары здесь</p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Fancy_rat_blaze.jpg/1200px-Fancy_rat_blaze.jpg" alt="Картинка">
+                    <div class="card-title">Кусачая крыса</div>
+                    <div class="card-price">420 руб</div>
+                    <div class="card-description">
+                        Кусается лучше всех крыс во всём мире
+                    </div>
+                </div>
+            </a>
+
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://zabormontazh.ru/images/categories/59/1.jpg" alt="Картинка">
+                    <div class="card-title">Легко-пробиваемые ворота</div>
+                    <div class="card-price">1488 руб</div>
+                    <div class="card-description">
+                        Чтобы сломать тебе надо дотронуться
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://i.ytimg.com/vi/asz5qcSRZWo/maxresdefault.jpg" alt="Картинка">
+                    <div class="card-title">Реклама мобильной игры</div>
+                    <div class="card-price">5 руб</div>
+                    <div class="card-description">
+                        Ты никогда не найдёш предателя
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://ambarmag.ru/upload/iblock/874/82zdc7h4kach574mye38qqao9car2uyt.png" alt="Картинка">
+                    <div class="card-title">Нагетсы</div>
+                    <div class="card-price">9 руб</div>
+                    <div class="card-description">
+                        Нагетсы, нагетсы, всего за 9 рублей.
+                    </div>
+                </div>
+            </a>
+
+            <a href="adv/index.html" class="card">
+                <div class="card-content">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaypd7BacZ_DmO-x6oshw2_evwrRiNogxycA&s" alt="Картинка">
+                    <div class="card-title">JTOH</div>
+                    <div class="card-price">100000 руб </div>
+                    <div class="card-description">
+                        Надо будет идти по башням и повышаться в сложности но не выберать что то слишком сложное или лёгкое
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_Soviet_Union.svg/250px-Flag_of_the_Soviet_Union.svg.png" alt="Картинка">
+                    <div class="card-title">СССР</div>
+                    <div class="card-price">ВЫ НЕ МОЖЕТЕ КУПИТЬ руб </div>
+                    <div class="card-description">
+                        СССР СЛИШКОМ МОЩНЫЙ ЧТОБЫ ЕГО ПРОСТО КУПИТЬ ВАМ НАДО ХОТЯБЫ БЕСКОНЕЧНОСТЬ РУБЛЕЙ И ТО ЭТО БУДЕТ МАЛО
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://www.teslafon.ru/img/catalog/tesla-6-3/2.jpg" alt="Картинка">
+                    <div class="card-title">Катушка теслы</div>
+                    <div class="card-price">Молния </div>
+                    <div class="card-description">
+                        МОЛНИИ ЗАХВАТЯТ МИР!
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c1/3c/4e/c13c4e74-91bf-5dfb-e858-484e96e1d27b/cover.jpg/1200x1200bb.jpg" alt="Картинка">
+                    <div class="card-title">250 тысяч тонн тротила</div>
+                    <div class="card-price">10000000 руб</div>
+                    <div class="card-description">
+                        И я взору эти 250 тысяч тонн тротила
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://thumbs.dreamstime.com/z/1-%D0%B0%D1%82%D0%BE%D0%BC%D0%BD%D0%B0%D1%8F-%D0%B1%D0%BE%D0%BC%D0%B1%D0%B0-21756098.jpg" alt="Картинка">
+                    <div class="card-title">Атомка</div>
+                    <div class="card-price">250000000000 руб</div>
+                    <div class="card-description">
+                        Давай-те начнём третью мировую войну
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://www.acronyms.co.uk/wp-content/uploads/2024/09/security-breach-trojan-virus-warning-1-1024x585.jpg" alt="Картинка">
+                    <div class="card-title">Троян</div>
+                    <div class="card-price">БЕСПЛАТНО</div>
+                    <div class="card-description">
+                        БЕСПЛАТНЫЕ 9999999999999 РОБУКСОВ ЗАЙДИТЕ НА САЙТ trojan.trojan.trojan и получите эти робуксы (заодно и троян которые сломает ваш компьютер) НО КАКАЯ РАЗНИЦА ЭТО ЖЕ 9999999999999 РОБУКСОВ ОМГ ОМГ
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://askleo.com/wp-content/uploads/2022/09/delete-key.jpg" alt="Картинка">
+                    <div class="card-title">DELETE</div>
+                    <div class="card-price">D3L3T3 руб</div>
+                    <div class="card-description">
+                        тек уда яет помгие
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://hi-news.ru/wp-content/uploads/2023/01/T_rex-750x379.jpg" alt="Картинка">
+                    <div class="card-title">Ручной динозавр</div>
+                    <div class="card-price">694201488 руб</div>
+                    <div class="card-description">
+                        99.9% цены вы платите за машину времени
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://cdn-img.perekrestok.ru/i/800x800-fit/xdelivery/files/87/c6/164e25c4a34324b5fd416b4ff7d6.jpg" alt="Картинка">
+                    <div class="card-title">Кириешки</div>
+                    <div class="card-price">150 руб</div>
+                    <div class="card-description">
+                        КАКИЕ ***** КИРИЕШКИ, Я СКАЗАЛ БОМБИТЬ КИЕВ
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="adv/RAGE%20QUIT.png" alt="Картинка">
+                    <div class="card-title">Rage Quit</div>
+                    <div class="card-price">0 руб</div>
+                    <div class="card-description">
+                        
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://i.scdn.co/image/ab67616d00001e0245652385f55f77129bb7453d" alt="Картинка">
+                    <div class="card-title">Ритуал сатаны</div>
+                    <div class="card-price">666 руб</div>
+                    <div class="card-description">
+                        ПОЗВОНИ НА НОМЕР ТЕЛЕФОНА +6 666 666 66 66
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA4WQPxCCzrR1yyf6uBhV36AWKv17b4ONEwA&s" alt="Картинка">
+                    <div class="card-title">Джекпот</div>
+                    <div class="card-price">777x1000000000 руб</div>
+                    <div class="card-description">
+                        Вы выйграли джекпот но всё ещё не в плюсе
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://i.scdn.co/image/ab67616d00001e028b6e07176262ef4d17d83129" alt="Картинка">
+                    <div class="card-title">МАЙНКРАФТ ЭТО МОЯ ЖИЗНЬ</div>
+                    <div class="card-price">ЖИЗНЬ</div>
+                    <div class="card-description">
+                        МАЙНКРАФТ ЭТО МОЯ ЖИЗНЬ!! МАЙНКРАААААААААААФТ!!!!
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши Контакты:</h3>
+        <ul>
+            <li>
+                <a href="#">+7 (420) 777-52-69</a>
+            </li>
+            <li>
+                <a href="#">joemama@mail.com</a>
+            </li>
+            <li>
+                <a href="#">YOU Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">LK</a>
+            </li>
+            <li>
+                <a href="#">YouL</a>
+            </li>
+            <li>
+                <a href="#">InstaL</a>
+            </li>
+            <li>
+                <a href="#">Lgram Канал</a>
+            </li>
+            <li>
+                <a href="#">Lzen</a>
+            </li>
+        </ul>
+        <p>&copy; 1488 Магазин. Все права УНИЧТОЖЕНЫ.</p>
+    </footer>
+
+</body></html>
