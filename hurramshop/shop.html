@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('images.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+		.banner img{
+			width:100%;
+		}
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+        
+        .banner a{
+            color: white;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="new.jpg" alt="">
+            <h1>Добро пожаловать в наш магазин!</h1>
+            <p>Найдите лучшие товары <a href="/hurramsecret.html">здесь</a></p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+           
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="6702747342.jpg" alt="Картинка">
+                    <div class="card-title">Молоко 3,2%</div>
+                    <div class="card-price">120 руб</div>
+                    <div class="card-description">Молоко Простоквашино Отборное пастеризованное жирностью 3,2% сохранило первозданный натуральный вкус. Продукт не содержит искусственных красителей, консервантов и ароматизаторов. Вы не найдете отличия между молоком, которое пьете в деревне у бабушки и изделием компании Простоквашино.
+                        
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="%D1%81%D0%BC%D0%B5%D1%82%D0%B0%D0%BD%D0%B0.webp" alt="Картинка">
+                    <div class="card-title">Сметана 25%</div>
+                    <div class="card-price">108 руб</div>
+                    <div class="card-description">Сметана Простоквашино 25%, 300 г готовится по традиционному русскому рецепту. В ее состав входят натуральные сливки и закваска полезных кисломолочных культур, что придает сметане очень богатый вкус, нежную консистенцию, а также свежий аромат. Благодаря небольшой жирности продукт прекрасно усваивается.
+                        
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg" alt="Картинка">
+                    <div class="card-title">Творог 5%</div>
+                    <div class="card-price">152 руб</div>
+                    <div class="card-description">
+                       Творог Простоквашино 5% 200г приготовлен по особой технологии из пастеризованного молока и закваски молочнокислых культур. После свертывания из творога отделяется сыворотка, продукт помещается под пресс и затем охлаждается. Структура получается плотная, суховатая, с минимальной кислинкой.
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="100026605920b0.webp" alt="Картинка">
+                    <div class="card-title">Масло сливочное 82% </div>
+                    <div class="card-price">280 руб</div>
+                    <div class="card-description">
+                    Масло сливочное Простоквашино 82% жирности – это натуральный продукт, приготовленный из свежих пастеризованных сливок высшего качества. Высокие требования к используемому для производства сырью позволяют поставлять на Ващ стол продукцию с наилучшими вкусовыми свойствами
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="772042dc51b83f54c8076b90a992.webp" alt="Картинка">
+                    <div class="card-title">Ряженка 3,2%</div>
+                    <div class="card-price">200 руб</div>
+                    <div class="card-description">Ряженка простоквашино-У нее приятный кремовый цвет и тонкий карамельный аромат. Изготовленная из 100% натуральных ингредиентов, эта ряженка отличается неизменно приятным вкусом. Кроме того, она проходит строгий контроль на антибиотики, а также не содержит консервантов, сухого молока и растительных жиров.
+                       
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="%D1%81%D0%BD%D0%B5%D0%B3.webp" alt="Картинка">
+                    <div class="card-title">Снежок 2,5%</div>
+                    <div class="card-price">180 руб</div>
+                    <div class="card-description">
+                    Снежок простоквашино-
+                  Высокое содержание молочнокислых микроорганизмов. Не содержит крахмала и каррагинана, мальтодекстрина. Консерванты не выявлены. Существенные замечания по органолептическим показателям: консистенция слегка тягучая, вкус и запах с легким привкусом «злаковых», с легкой мучнистостью
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="49c6fba11bb689870d59a7f875aecf25.jpg" alt="Картинка">
+                    <div class="card-title">Кефир 3,2%</div>
+                    <div class="card-price">110 руб</div>
+                    <div class="card-description">
+                       Кефир Простоквашино приготовлен из качественного, пятизвёздочного молока и "живой" закваски на кефирных грибках, о которых тщательно заботятся и отбирают вручную. Благодаря этому кефир Простоквашино такой густой и вкусный. Можно быть уверенным: в "Простоквашино" - кефир правильно заквашен!
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="75d7b84e1dc8e9bfd18503d315e2.webp" alt="Картинка">
+                    <div class="card-title">Йогурт греческий 2%</div>
+                    <div class="card-price">78 руб</div>
+                    <div class="card-description">
+                      Йогурт греческий Простоквашино-Пищевая ценность в 100г: Белки: 3.60 Жиры: 2.90 Углеводы: 11.80 Калорийность: 88. Состав: нормализованное молоко, наполнитель (вода, клубника, сахар, кукурузный крахмал, сок лимона, сок черной моркови, семена клубники, загуститель – пектины, натуральный ароматизатор, краситель – кармины), сахар, закваска.
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши Контакты:</h3>
+        <ul>
+            <li>
+                <a href="#">+7 (999) 000-11-00</a>
+            </li>
+            <li>
+                <a href="#">shop@mail.com</a>
+            </li>
+            <li>
+                <a href="#">Telegram Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">VK</a>
+            </li>
+            <li>
+                <a href="#">Youtube</a>
+            </li>
+            <li>
+                <a href="#">Instagram</a>
+            </li>
+            <li>
+                <a href="#">Telegram Канал</a>
+            </li>
+            <li>
+                <a href="#">Dzen</a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
