@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('41.avif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background-color: #00d8ff
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #c6c6c6;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="23456789.jfif" alt="">
+            <h1>Добро пожаловать в наш магазин сдесь продаюь технеку!</h1>
+            <p>Найдите лучшие товары здесь</p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="https://static01.servicebox.ru/img/uploads/faq/151447465661d37e6e4d3733fdd19e8298d8e4e2f3.jpeg" alt="Картинка">
+                    <div class="card-title">колонкф вода не проницаемая</div>
+                    <div class="card-price">20000 руб</div>
+                    <div class="card-description">
+                        беспроводная калонка водо не проницаемая
+                    </div>
+                </div>
+            </a>
+
+
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="123.jfif" alt="Картинка">
+                    <div class="card-title">телефон</div>
+                    <div class="card-price">2000 руб</div>
+                    <div class="card-description">
+                        телефон с хорошей камерой память 250мг
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="9020.393.jfif" alt="Картинка">
+                    <div class="card-title">телефон</div>
+                    <div class="card-price">20000 руб</div>
+                    <div class="card-description">
+                        телефон с хорошей камерой память 250мг
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="99999999.png" alt="Картинка">
+                    <div class="card-title">телефон</div>
+                    <div class="card-price">40000 руб</div>
+                    <div class="card-description">
+                        телефон с хорошей камерой память 250мг
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="8888888888888888888.png" alt="Картинка">
+                    <div class="card-title">телефон</div>
+                    <div class="card-price">40000 руб</div>
+                    <div class="card-description">
+                        телефон с хорошей камерой память 250мг
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="1234.jfif" alt="Картинка">
+                    <div class="card-title">наушники</div>
+                    <div class="card-price">1500 руб</div>
+                    <div class="card-description">
+                        наушники беспроводные с хорошим звуком
+                    </div>
+                </div>
+            </a>
+
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="12345.jfif" alt="Картинка">
+                    <div class="card-title">наушники</div>
+                    <div class="card-price">1000 руб</div>
+                    <div class="card-description">
+                        наушники беспроводные с хорошим звуком
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="123456.jfif" alt="Картинка">
+                    <div class="card-title">наушники</div>
+                    <div class="card-price">1900 руб</div>
+                    <div class="card-description">
+                        наушники беспроводные с хорошим звуком
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="1234567.avif" alt="Картинка">
+                    <div class="card-title">ноутбук</div>
+                    <div class="card-price">25000руб</div>
+                    <div class="card-description">
+                        ноутбук с хорошей паметью
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="12345678.png" alt="Картинка">
+                    <div class="card-title">телефон</div>
+                    <div class="card-price">85000</div>
+                    <div class="card-description">
+                        хорошая память и процессор
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="123456789.avif" alt="Картинка">
+                    <div class="card-title">поурбанк</div>
+                    <div class="card-price">5000</div>
+                    <div class="card-description">
+                        хорошо заряжает
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="/mariyasecret.html" class="card">
+                <div class="card-content">
+                    <img src="234.webp" alt="Картинка">
+                    <div class="card-title">увдажнитель воздуха</div>
+                    <div class="card-price">1200</div>
+                    <div class="card-description">
+                        увлажнитель фоздуха хорошо держит зарядку
+                    </div>
+                </div>
+            </a>
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="2345.webp" alt="Картинка">
+                    <div class="card-title">кофе машина </div>
+                    <div class="card-price">7500</div>
+                    <div class="card-description">
+                        кофе машина хорошо растворяет кофе
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши Контакты:</h3>
+        <ul>
+            <li>
+                <a href="#">+7 (999) 000-11-00</a>
+            </li>
+            <li>
+                <a href="#">shop@mail.com</a>
+            </li>
+            <li>
+                <a href="#">Telegram Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">VK</a>
+            </li>
+            <li>
+                <a href="#">Youtube</a>
+            </li>
+            <li>
+                <a href="#">Instagram</a>
+            </li>
+            <li>
+                <a href="#">Telegram Канал</a>
+            </li>
+            <li>
+                <a href="#">Dzen</a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
