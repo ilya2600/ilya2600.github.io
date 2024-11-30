@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #9b4141;
+            color: #833535;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #ba7575;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image:;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(185, 73, 73, 0.35);
+        }
+        
+        .banner img{
+            width: 70%;
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background-color: #9f5f78
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #8d3c3c;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #b14f4f;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #894a4a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="steam.png" alt="">
+            <h1>Добро пожаловать в наш магазин лицензий и доната,покупки аккаунтов для игр</h1>
+            <p>здесь можно купить или задонатить игры не доступные в России</p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+           
+            <!-- Карточка -->
+            <a href="/vmikhailsecret.html" class="card">
+                <div class="card-content">
+                    <img src="images.webp" alt="Картинка">
+                    <div class="card-title">Лицензия</div>
+                    <div class="card-price">249 руб</div>
+                    <div class="card-description">
+                       лицензия террарии
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="PC_Bundle_BaseGame_Mobile.jpg" alt="Картинка">
+                    <div class="card-title">ключ</div>
+                    <div class="card-price">1900 рублей</div>
+                    <div class="card-description">
+                     ключ майнкрафт java
+                    </div>
+                </div>
+            </a>
+            
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="df64140bdea6c737ac0cd2618af4988e955e05ac.jpeg" alt="Картинка">
+                    <div class="card-title">ключ</div>
+                    <div class="card-price">3 090 руб</div>
+                    <div class="card-description">
+                     ключ майнкрафт bedrock
+                    </div>
+                </div>
+            </a>
+            
+              
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="c59e49e56462c5cb6948efd89993d18023639b3f958c19a15bf310a202e44345_200.webp" alt="Картинка">
+                    <div class="card-title">игра</div>
+                    <div class="card-price">79 руб</div>
+                    <div class="card-description">
+                     pvz 1 на pc
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+                <a href="#" class="card">
+                <div class="card-content">
+                    <img src="%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg" alt="Картинка">
+                    <div class="card-title">игра</div>
+                    <div class="card-price"> 3279 руб</div>
+                    <div class="card-description">
+                     pvz 2 на pc
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+              <a href="#" class="card">
+                <div class="card-content">
+                    <img src="1.webp" alt="Картинка">
+                    <div class="card-title">игра</div>
+                    <div class="card-price"> 624 руб</div>
+                    <div class="card-description">
+                     pvz garden warfare  на pc
+                    </div>
+                </div>
+            </a>
+            
+            
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="2.webp" alt="Картинка">
+                    <div class="card-title">игра</div>
+                    <div class="card-price"> 757 руб</div>
+                    <div class="card-description">
+                     pvz garden warfare 2  на pc
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+              <a href="#" class="card">
+                <div class="card-content">
+                    <img src="images.jpg" alt="Картинка">
+                    <div class="card-title">игра</div>
+                    <div class="card-price">  450 руб</div>
+                    <div class="card-description">
+                    gmod (только на pc!!)
+                    </div>
+                </div>
+            </a>
+            
+            
+            
+            
+            
+            
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши Контакты:</h3>
+        <ul>
+            <li>
+                <a href="#">+7 (999) 000-11-00</a>
+            </li>
+            <li>
+                <a href="#">shop@mail.com</a>
+            </li>
+            <li>
+                <a href="#">Telegram Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">VK</a>
+            </li>
+            <li>
+                <a href="#">Youtube</a>
+            </li>
+            <li>
+                <a href="#">Instagram</a>
+            </li>
+            <li>
+                <a href="#">Telegram Канал</a>
+            </li>
+            <li>
+                <a href="#">Dzen</a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
