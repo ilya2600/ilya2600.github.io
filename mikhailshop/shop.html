@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+            
+            z-index: 1000;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .banner img {
+            width: 60%;
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background-color: #ff00f5;
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/mikhailsecret.html">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="1667929102152124336.jpg" alt="">
+            <h1>Хотите прикупить манги,акксесуары,фигурки-идите к нам!!!</h1>
+            <p></p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+           
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="7062868940.jpg" alt="Картинка">
+                    <div class="card-title">фигурка токийский гуль,Funko Pop!</div>
+                    <div class="card-price">999 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="brelok_jujutsu_kaisen.jpg" alt="Картинка">
+                    <div class="card-title">брелок аниме магическая битва</div>
+                    <div class="card-price">449 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="HbWFqn8nqvgDi5Pn2trQoDRBeXZa7VuXH7dKYCt7.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 1 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="6480802796 (1).jpg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 3 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+             <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="w4RWDgFGiqyeGHwIXhjE83L5CrWObnIkpLSAnT7E.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 2 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="magicheskaya-bitva-kniga-4.jpg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 4 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+             <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="ZVCOD3YQMkxHker08WLmDzdk82vB9FSqN4egO5i4.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 5 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+             <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="foCEpCdYQyhbldaDCjkD0b4uNjHpQ2xikrjFdVgJ.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 6 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="LQzAkudn5X9eJwcvptSxfgXKQGfMzrQEO9yoF1bX-1024x1024.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 7 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+                
+                 <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="xOrPXgs3uIbp7RON1bhB8CxfiluuRZWYLHXkcEeX-240x_.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 8 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="VynCr4kv2NADgTsvuioR3F5CLCg5srLMRQuERVWR-1024x1024.jpeg" alt="Картинка">
+                    <div class="card-title">магическая битва манга 9 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="018f5cb6-1b1b-7f53-9825-6929bd4c029d.webp" alt="Картинка">
+                    <div class="card-title">магическая битва манга 10 часть</div>
+                    <div class="card-price">1199 руб</div>
+                    <div class="card-description">
+                    
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3></h3>
+        <ul>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+        <h3></h3>
+        <ul>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
