@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #912424;
+            color: #fff;
+
+            position: fixed;
+            width: 100vw;
+            /* настройка внутренних элементов */
+            display: flex;
+        }
+
+        header a {
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 6vw;
+            min-width: 80px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        nav ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        nav ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            background-color: #331f1f;
+        }
+
+        .banner {
+            color: white;
+            text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-image: url('75a5e8e1520611ee8c00ac1f6bd8bc11_75a5e972520611ee8c00ac1f6bd8bc11.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner div {
+            padding: 100px;
+            padding-top: 150px;
+            background-color: rgba(85, 74, 149, 0.35);
+        }
+
+        .banner img {
+            width: 70%;
+        }
+
+        /* Галлерея */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .gallery-grid {
+            /display: flex;
+            /flex-wrap: wrap;
+            /justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 0.8fr));
+            justify-content: center;
+            width: 80vw;
+        }
+
+        /* Карточка */
+        .card {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 12px;
+            /max-width: 250px;
+            margin: 16px;
+            background-color: #ffffff;
+            transition: all 0.1s ease-in-out;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0px;
+            color: black;
+        }
+
+        .card-price {
+            font-size: 26px;
+            color: #1be049;
+            font-weight: bold;
+            padding: 5px 0px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            padding: 10px 0px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        footer ul li {
+            padding: 0px;
+
+            /* настройка внутренних элементов */
+            display: flex;
+            align-items: stretch;
+        }
+
+        footer ul li a {
+            color: #dddddd;
+            text-decoration: none;
+            margin: 0;
+            padding: 15px;
+
+            /* настройка внутренних элементов */
+            display: block;
+            align-content: center;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+            background-color: #c42222;
+        }
+        
+        footer a{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <div>
+            <img src="75a5e8e1520611ee8c00ac1f6bd8bc11_75a5e972520611ee8c00ac1f6bd8bc11.jpg" alt="">
+            <h1>Добро пожаловать в наш магазин! зимней одежды и обуви.</h1>
+            <p>Найдите лучшие товары здесь</p>
+        </div>
+    </section>
+
+    <!-- Галлерея -->
+    <section class="gallery">
+        <div class="gallery-grid">
+
+            <!-- Карточка -->
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="Pukhovik-zhenskiy-5P_1328-chyernyy-_1_%20(1).jpg" alt="картинка">
+                    <div class="card-title">зимняя куртка женская</div>
+                    <div class="card-price">3600 руб</div>
+                    <div class="card-description">
+                        Состав
+                        полиэстер
+                        Сезон
+                        зима
+                        Рост модели на фото
+                        174 см
+                        Параметры модели на фото (ОГ-ОТ-ОБ)
+                        81-60-93
+                        Утеплитель
+                        тейсулин
+                        Температурный режим
+                        от +10 до -30
+
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="ycox44hvlao3swu4u0eidgz469sqxduw.jpg" alt="картинка">
+                    <div class="card-title">зимняя куртка женская</div>
+                    <div class="card-price">3899 руб</div>
+                    <div class="card-description">
+                        Состав
+                        болонья
+                        Сезон
+                        зима
+                        Размер на модели
+                        42-44
+                        Рост модели на фото
+                        167 см
+                        Параметры модели на фото (ОГ-ОТ-ОБ)
+                        84-60-89
+                        Утеплитель
+                        холлофайбер
+                        9 381 ₽
+                        9 672 ₽
+
+                        25 ноября
+
+                        В корзину
+
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="4450522122_13_4.jpg" alt="картинка">
+                    <div class="card-title">зимняя куртка женская</div>
+                    <div class="card-price">5990 руб</div>
+                    <div class="card-description">
+                        Состав
+                        болонья
+                        Сезон
+                        зима
+                        Размер на модели
+                        42-44
+                        Рост модели на фото
+                        167 см
+                        Параметры модели на фото (ОГ-ОТ-ОБ)
+                        84-60-89
+                        Утеплитель
+                        холлофайбер
+                        9 381 ₽
+                        9 672 ₽
+
+                        25 ноября
+
+                        В корзину
+
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="csgt8djvgbkl7nomio3g.jpg" alt="картинка">
+                    <div class="card-title">зимняя куртка мужская</div>
+                    <div class="card-price">3999 руб</div>
+                    <div class="card-description">
+                        Состав
+                        Полиэстер-100%
+                        Сезон
+                        зима
+                        Размер на модели
+                        52
+                        Рост модели на фото
+                        187 см
+                        Утеплитель
+                        Био-Пух
+                        Температурный режим
+                        до -35
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="DSC_0010.jpg" alt="картинка">
+                    <div class="card-title">зимняя куртка мужская</div>
+                    <div class="card-price">3600 руб</div>
+                    <div class="card-description">
+                        Утеплитель Био-Пух
+                        Температурный режим от -5 °C до -30 °C
+                        Плотность синтетического утеплителя 350 г/кв.м
+                        Характеристика пух/перо (fill power) 250 куб. дюйм на унцию
+                        Страна производства Китай
+                        Материал подкладки полиэстер
+                        Вид застежки молния; кнопки
+                        Особенности модели ветрозащита
+                        Опции капюшона несъемный капюшон
+                        Опции опушки без опушки
+                        Декоративные элементы с капюшоном
+                        Тип карманов прорезные
+                        Комплектация пуховик; пуховик мужской с капюшоном
+                        Покрой прямой
+                        Уход за вещами бережная стирка при 30 градусах
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="15c798bf3471d8df88b4f0eded780d72.jpeg" alt="картинка">
+                    <div class="card-title">зимняя куртка мужская</div>
+                    <div class="card-price">3890 руб</div>
+                    <div class="card-description">
+                        Утеплитель Био-Пух
+                        Температурный режим до -30
+                        Страна производства Китай
+                        Материал подкладки полиэстер
+                        Вид застежки молния; кнопки
+                        Особенности модели ветрозащитная и влагонепроницаемая
+                        Опции капюшона съемный капюшон
+                        Опции опушки без опушки
+                        Декоративные элементы без элементов
+                        Тип карманов прорезные
+                        Комплектация пуховик 1 шт
+                        Покрой прямой
+                        Уход за вещами бережная стирка при 30 градусах; сушка в вертикальном положении
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="p2z5u0so04jo5ccm6cdksczflghox53l.jpg" alt="картинка">
+                    <div class="card-title">зимняя обувь женская</div>
+                    <div class="card-price">4599 руб</div>
+                    <div class="card-description">
+                        Название бренда
+                        HAJINK
+                        Номер модели
+                        Women Sneakers
+                        Происхождение
+                        Китай
+                        Возрастная категория
+                        Взрослые
+                        Тип рисунка
+                        Сплошной
+                        Покрой
+                        Соответствует размеру, берите свой обычный размер
+                        Сезон
+                        Весна / осень
+                        Модные элементы
+                        Шитье
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="rxadl1ylqu5o75ha8k4pfpq49jwnw55b.jpg" alt="картинка">
+                    <div class="card-title">зимняя обувь женская</div>
+                    <div class="card-price">7990 руб</div>
+                    <div class="card-description">
+                        Название бренда
+                        HAJINK
+                        Номер модели
+                        Women Boots
+                        Происхождение
+                        Китай
+                        Стиль
+                        Простой
+                        Возрастная категория
+                        Взрослые
+                        Тип товара
+                        Сапоги и ботинки
+                        Тип рисунка
+                        Сплошной
+                        Покрой
+                        Соответствует размеру, берите свой обычный размер
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="4cab2511-f56e-11ed-918c-d8d385af0808-c9f57c8e-f571-11ed-918c-d8d385af0808.webp" alt="картинка">
+                    <div class="card-title">зимняя обувь женская</div>
+                    <div class="card-price">10125 руб</div>
+                    <div class="card-description">
+                        Название бренда
+                        ZUUBAN
+                        Происхождение
+                        Китай
+                        Возрастная категория
+                        Взрослые
+                        Тип товара
+                        Сапоги и ботинки
+                        Тип рисунка
+                        Сплошной
+                        Покрой
+                        Соответствует размеру, берите свой обычный размер
+                        Сезон
+                        Зима
+                        Модные элементы
+                        Шитье
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card">
+                <div class="card-content">
+                    <img src="7149950980.jpg" alt="картинка">
+                    <div class="card-title">зимняя обувь женская</div>
+                    <div class="card-price">7990 руб</div>
+                    <div class="card-description">
+                        HAJINK
+                        Номер модели
+                        Women Boots
+                        Происхождение
+                        Китай
+                        Стиль
+                        Корейский стиль
+                        Возрастная категория
+                        Взрослые
+                        Тип товара
+                        Сапоги и ботинки
+                        Тип рисунка
+                        Сплошной
+                        Покрой
+                        Соответствует размеру, берите свой обычный размер
+                    </div>
+
+                </div>
+            </a>
+
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <h3>Наши <a href="/kirasecret.html">Контакты:</a></h3>
+        <ul>
+            <li>
+                <a href="#">+7 (999) 000-11-00</a>
+            </li>
+            <li>
+                <a href="#">shop_boots@mail.com</a>
+            </li>
+            <li>
+                <a href="#">Telegram Bot</a>
+            </li>
+        </ul>
+        <h3>Наши Соцсети:</h3>
+        <ul>
+            <li>
+                <a href="#">VK</a>
+            </li>
+            <li>
+                <a href="#">Youtube</a>
+            </li>
+            <li>
+                <a href="#">Instagram</a>
+            </li>
+            <li>
+                <a href="#">Telegram Канал</a>
+            </li>
+            <li>
+                <a href="#">Dzen</a>
+            </li>
+        </ul>
+        <p>&copy; 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+</body></html>
