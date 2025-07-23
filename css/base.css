@@ -1,0 +1,28 @@
+:root{
+    --p-color: #d7ed9b;
+    --s-color: #313148;
+    --text-color: #1f1f1f;
+    --padding-gallery: 18px;
+    --accent-1: #8d8383;
+    --shadow-1: rgba(0,0,0,0.35);
+    --button-bg-1: #8bdd8b;
+    --button-bg-2: #ffbf57;
+    --button-text-1: #003800;
+    --button-text-2: #460000;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    color: var(--text-color)
+}
+
+body {
+    margin: 0;
+    background-color: var(--s-color);
+}
+
+h1 {
+    padding: 10px;
+    background-color: var(--p-color);
+}

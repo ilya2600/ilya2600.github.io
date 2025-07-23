@@ -1,0 +1,58 @@
+#modal {
+    --head-height: 50px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+#modal-buttons {
+    background-color: var(--p-color);
+    display: flex;
+    gap: 20px;
+    flex-grow: 0.5;
+}
+
+#btn-delete {
+    font-size: 24px;
+    background-color: var(--button-bg-2);
+    color: var(--button-text-2);
+    border-style: solid;
+    border-color: var(--button-text-2);
+    flex-grow: 1;
+    /* :hover, :active, анимация */
+}
+
+#btn-save {
+    font-size: 24px;
+    background-color: var(--button-bg-1);
+    color: var(--button-text-1);
+    border-style: solid;
+    border-color: var(--button-text-1);
+    flex-grow: 3;
+    /* :hover, :active, анимация */
+}
+
+#note-text {
+    resize: none;
+    font-size: 24px;
+    flex-grow: 15; 
+}
+
+#note-name {
+    background-color: var(--p-color);
+    font-size: 42px;
+    height: var(--head-height);
+    text-align: center;
+}
+
+#back-btn {
+    position: absolute;
+    font-size: 24px;
+    width: var(--head-height);
+    height: var(--head-height);
+}

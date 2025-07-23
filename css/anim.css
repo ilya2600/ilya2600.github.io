@@ -1,0 +1,62 @@
+@keyframes AddBtnAnim {
+    0% {
+        
+    }
+    75% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        opacity: 1;
+        color: rgba(0,0,0,0);
+        border-style: none;
+    }
+    100% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        right: 0;
+        bottom: 0;
+        color: rgba(0,0,0,0);
+        border-style: none;
+        pointer-events: none;
+        opacity: 0;
+    }
+}
+
+@keyframes ModalAnim {
+    75%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+    }
+}
+
+@keyframes MainAnim {
+    0%{
+        display: block;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+
+@keyframes DeleteBtnAnim{
+    100%{
+        border-radius: 0;
+        background-color: var(--button-bg-2);
+        border-color: #8b1414;
+    }
+}
+
+@keyframes DeleteIconAnim{
+    100%{
+        transform: rotateZ(45deg);
+    }
+}

@@ -1,0 +1,120 @@
+#main{
+    display: block;
+}
+
+#note-gallery {
+    padding: var(--padding-gallery);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-gallery);
+    align-content: flex-start;
+}
+
+.note {
+    background-color: var(--p-color);
+    height: 200px;
+    width: 200px;
+    border-style: solid;
+    border-color: var(--accent-1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px var(--shadow-1);
+    /* :hover, :active, анимация */
+    transition: 0.25s;
+}
+
+@media (max-width: 768px){
+    .note{
+        width: 46vw;
+        flex-grow: 1;
+        height: 46vw;
+    }
+    #note-gallery{
+        gap: 5px;
+        padding: 5px;
+    }
+}
+
+.note:hover{
+    transform: scale(1.01)
+}
+
+.note:active{
+    transform: scale(0.99)
+}
+
+.note-content{
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.note-delete-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.note-delete-container input,
+.note-delete-container button
+{
+    --size: 20px;
+    height: var(--size);
+    width: var(--size);
+}
+
+#note-add-btn {
+    background-color: var(--p-color);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 80px;
+    border-radius: 100%;
+    border-color: var(--accent-1);
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 4px 6px var(--shadow-1);
+    /* :hover, :active, анимация */
+    transition: 0.25s;
+    z-index: 100;
+}
+
+#note-add-btn:hover{
+    transform: scale(1.1)
+}
+
+#note-add-btn:active{
+    transform: scale(0.9)
+}
+
+#control-menu {
+    background-color: var(--p-color);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+}
+
+#ctrl-menu-delete{
+    background-color: var(--button-bg-2);
+    color: var(--button-text-2);
+    padding: 10px;
+}
+
+
+/*
+    btn-delete{
+        ...
+        transition: 1s;
+    }
+
+    transform: scale()
+    color:
+    background-color:
+
+    btn-delete:hover{
+        color: red; //новые стили анимации
+    }
+*/
