@@ -9,42 +9,49 @@
         html {
             font-size: 16px;
         }
-        *{
+
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        body{
+
+        body {
             background: var(--color-bg);
         }
-        .main-header{
+
+        .main-header {
             background: orange;
             display: flex;
             background: var(--color-surface)
         }
-        .main-header-icon{
+
+        .main-header-icon {
             margin: 1%;
             background: lime;
-            width: 75px;
-            height: 75px;
+            width: clamp(4rem,5vw,5rem);
+            height: clamp(4rem,5vw,5rem);
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 100%;
             overflow: hidden;
         }
+
         .main-header-icon img {
             background: red;
             width: 200%;
         }
-        .main-nav{
+
+        .main-nav {
             flex-grow: 1;
             display: flex;
             gap: 16px;
             margin-top: 1%;
             margin-bottom: 1%;
         }
-        .main-nav a{
+
+        .main-nav a {
             text-decoration: none;
             flex: 1;
             font-size: 1.2rem;
@@ -53,29 +60,69 @@
             align-items: center;
             color: var(--color-text);
         }
-        .main-nav a:hover{
+
+        .main-nav a:hover {
             color: var(--color-primary);
         }
-        .main-header-h1{
-            font-size: 2.5rem;
+
+        .main-header-h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 1%;
         }
+
+        .main-nav-dropdown {
+            display: none;
+        }
+        
+        .main-nav-dropdown:hover + .main-nav {
+                display: block;
+                position: absolute;
+        }
+
+        @media (max-width: 480px) {
+            .main-nav-box {
+                position: relative;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+
+            .main-nav-dropdown {
+                display: block;
+                font-size: 3rem;
+                color: var(--color-text);
+                flex: 1;
+                text-align: center;
+                /background: pink;
+            }
+            
+            .main-nav-dropdown:active + .main-nav {
+                display: block;
+                position: absolute;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header class="main-header">
-          <div class="main-header-icon">
-              <img src="assets/imgs/test-icon.png" alt="">
-          </div>
-          <nav class="main-nav">
-              <a href="#">Главная</a>
-              <a href="#">Дизайн</a>
-              <a href="#">Код</a>
-          </nav>
-          <h1 class="main-header-h1">WEBSITE</h1>      
+        <div class="main-header-icon">
+            <img src="assets/imgs/test-icon.png" alt="">
+        </div>
+        
+        <nav class="main-nav-box">
+            <a href="#" class="main-nav-dropdown">=</a>
+            <nav class="main-nav">
+                <a href="#">Главная</a>
+                <a href="#">Дизайн</a>
+                <a href="#">Код</a>
+            </nav>
+        </nav>
+        
+        <h1 class="main-header-h1">WEBSITE</h1>
     </header>
-</body>
-</html>
+</body></html>
