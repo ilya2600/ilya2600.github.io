@@ -1,0 +1,20 @@
+# Theme configuration for dark mode
+remote_theme: jekyll/minima
+plugins:
+  - jekyll-remote-theme
+
+# Dark mode settings  
+minima:
+  skin: dark
+
+# Basic site config (add your details)
+title: Your Site Title
+description: Your site description
+
+# Ensure README.md renders as index
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
