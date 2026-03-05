@@ -75,17 +75,7 @@ def ensure_master():
 
 ### 3. Обновляем блок запуска приложения
 
-В конце `app.py` найдите блок:
-
-```python
-if __name__ == "__main__":
-    init_db()
-    # insert_test_user()
-    # print(show_table())
-    app.run(debug=True)
-```
-
-и замените его на вариант, который инициализирует базу и гарантирует наличие мастера:
+В конце `app.py` найдите блок и замените его на вариант, который инициализирует базу и гарантирует наличие мастера:
 
 ```python
 if __name__ == "__main__":
@@ -138,19 +128,15 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 ```python
 def create_user(username, password, role):
-    """
-    Создать пользователя: пароль сразу превращаем в безопасный хеш.
-    В таблицу users никогда не попадает «голый» пароль.
-    """
+    """..."""
     password_hash = generate_password_hash(password)
 
     conn = get_conn()
     conn.execute(
-        "INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+        "INSERT INTO users ....",
         (username, password_hash, role),
     )
-    conn.commit()
-    conn.close()
+    ...
 ```
 
 Обратите внимание:
@@ -266,7 +252,7 @@ def login():
         )
 
     # Пока что просто покажем заглушку (без сессии)
-    return render_template("home.html", db_ok=True)
+    return redirect(url_for("home"))
 ```
 
 Здесь важно:
@@ -275,7 +261,7 @@ def login():
 - если пароль не совпадает — тоже ошибка;
 - при успехе пока **не запоминаем** пользователя, просто рендерим страницу (сессию добавим в следующем шаге).
 
-На практике вместо `render_template("home.html", db_ok=True)` вы можете:
+На практике вместо `redirect(url_for("home"))` вы можете:
 
 - либо аккуратно подставить реальные данные (`db_ok` как в Части A),
 - либо временно создать простой шаблон‑заглушку (`login_success.html`).
@@ -307,7 +293,7 @@ from flask import ..., session
 - у приложения задан `secret_key`:
 
 ```python
-app = Flask(__name__)
+app = Flask(...)
 app.secret_key = "dev-secret"  # в реальном проекте использовать надёжный случайный ключ
 ```
 
@@ -333,15 +319,12 @@ def is_logged_in():
 - сохранить в неё `user_id` и `role`;
 - сделать редирект.
 
-Замените «успешную» часть функции `login` на такую:
+Замените «успешную» часть функции `login` на такую (вместо `return redirect(url_for("home"))`):
 
 ```python
+@app.post("/login")
+def login():
     ...
-    if not check_password_hash(user["password"], password):
-        return render_template(
-            "login.html",
-            error="Неверный пароль.",
-        )
 
     # Пароль подошёл — запоминаем пользователя в сессии
     session.clear()
@@ -398,9 +381,19 @@ def logout():
 - `session.clear()` удаляет все данные из сессии (`user_id`, `role` и т.п.);
 - затем браузер перенаправляется на главную.
 
+А в `home()` в первую строчку добавить код, который будет проверять если мы вошли или нет, и кидать на страницу `/login` если нет:
+
+```python
+@app.route("/")
+def home():
+    if not is_logged_in():
+      return redirect(url_for("login_form"))
+    ...
+```
+
 ### 2. Ссылки на выход в шаблонах
 
-В тех шаблонах, где уместно (например, в `home.html` и чуть позже в `dashboard.html`), можно добавить ссылку:
+В `home.html` можно добавить ссылку:
 
 ```html
 <a href="{{ url_for('logout') }}">Выйти</a>
@@ -452,14 +445,10 @@ def current_user():
 ```python
 @app.route("/")
 def home():
-    conn = get_conn()
-    row = conn.execute("SELECT 1 AS ok").fetchone()
-    conn.close()
-
-    db_ok = row is not None and row["ok"] == 1
+    ...
     user = current_user()
 
-    return render_template("home.html", db_ok=db_ok, user=user)
+    return render_template(..., user=user)
 ```
 
 ### 3. Обновляем `home.html`: разный контент
@@ -490,6 +479,22 @@ def home():
 - `url_for('login_form')` — ссылка на форму входа;
 - `url_for('dashboard')` — ссылка на будущий дашборд (создадим его в следующем шаге).
 
+Для проверки, создайте временную заглушку для `dashboard`:
+
+```python
+@app.route("/dashboard")
+def dashboard():
+        return "dashboard.html"
+```
+
+Так как теперь у нас на `home` странице есть отдельное сообщение о статусе входа, можно из `home()` удалить:
+
+```python
+    if not is_logged_in():
+      return redirect(url_for("login_form"))
+    ...
+```
+
 ---
 
 ## B6. Простая защищённая страница‑дашборд
@@ -505,7 +510,7 @@ def home():
 В `app.py` добавьте:
 
 ```python
-from flask import abort, request  # если ещё не импортированы
+from flask import ..., abort, request
 ```
 
 и ниже других маршрутов — защищённый дашборд:
@@ -568,11 +573,9 @@ def dashboard():
 Вернитесь к функции `login` и обновите финальный редирект:
 
 ```python
+@app.post("/login")
+def login():
     ...
-    session.clear()
-    session["user_id"] = user["id"]
-    session["role"] = user["role"]
-
     # Теперь после входа отправляем пользователя в дашборд
     return redirect(url_for("dashboard"))
 ```
