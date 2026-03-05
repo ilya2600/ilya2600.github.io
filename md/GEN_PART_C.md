@@ -12,9 +12,43 @@
 **Предполагается, что вы уже сделали Части A и B:**
 
 - есть Flask‑приложение с маршрутами `/`, `/login`, `/logout`, `/dashboard`;
-- таблица `users` и функции работы с БД (`get_conn`, `init_db`, `create_user`, `ensure_master`, `current_user`, `is_logged_in`, `is_master`);
+- таблица `users` и функции работы с БД (`get_conn`, `init_db`, `create_user`, `ensure_master`, `current_user`, `is_logged_in`);
 - включена сессия (`app.secret_key`), реализованы вход и выход из системы;
 - есть простая защищённая страница‑дашборд (`/dashboard`).
+
+---
+
+## C0. `is_admin`, `settings`:
+
+Добавить новые вспомогательные функция, которые проверяют если данный пользователь `admin`:
+
+```python
+def is_admin():
+    u = current_user()
+    return u is not None and u["role"] == "admin"
+
+```
+
+Изменить `init_db()` добавив внутрь дополнительный код, создания `settings` и вставку значения `registration_open`:
+
+```python
+def init_db():
+    ...
+
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS settings (
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL
+        )
+    """)
+    conn.execute("INSERT OR IGNORE INTO settings (key, value) VALUES ('registration_open', '0')")
+
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            ...
+    """)
+    ...
+```
 
 ---
 
@@ -57,14 +91,14 @@ def get_registration_open():
 - `GET /admin/settings` — показывает текущий статус и форму;
 - `POST /admin/settings` — сохраняет новое значение.
 
-В `app.py` уже есть вспомогательные функции `is_logged_in()` и `is_master()`. Маршруты выглядят так:
+В `app.py` уже есть вспомогательные функции `is_logged_in()` и `is_admin()`. Маршруты для настройки регистрации выглядят так:
 
 ```python
 @app.get("/admin/settings")
 def admin_settings():
     if not is_logged_in():
         return redirect(url_for("login_form", next=request.url))
-    if not is_master():
+    if not is_admin():
         abort(403)
     return render_template("admin_settings.html", registration_open=get_registration_open())
 
@@ -73,7 +107,7 @@ def admin_settings():
 def admin_settings_save():
     if not is_logged_in():
         return redirect(url_for("login_form", next=request.url))
-    if not is_master():
+    if not is_admin():
         abort(403)
     open_val = "1" if request.form.get("registration_open") == "on" else "0"
     conn = get_conn()
@@ -144,11 +178,11 @@ def admin_settings_save():
 - регистрация доступна только для неавторизованных пользователей;
 - страница регистрации вообще работает только если мастер включил флаг `registration_open`;
 - при закрытой регистрации любая попытка открыть `/register` или отправить форму даёт понятную ошибку;
-- при открытой регистрации создаётся пользователь с базовой ролью (например, `agent` в текущей схеме), пароль хешируется.
+- при открытой регистрации создаётся пользователь с базовой ролью (например, `user` в текущей схеме), пароль хешируется.
 
 ### 1. Маршруты регистрации
 
-В `app.py` уже есть два маршрута `/register`:
+В `app.py` добавляем два маршрута `/register`:
 
 ```python
 @app.get("/register")
@@ -173,7 +207,7 @@ def register():
     conn = get_conn()
     try:
         conn.execute(
-            "INSERT INTO users (username, password_hash, role) VALUES (?, ?, 'agent')",
+            "INSERT INTO users (username, password, role) VALUES (?, ?, 'user')",
             (username, generate_password_hash(password)),
         )
         conn.commit()
@@ -281,15 +315,14 @@ def register():
 
 ### 1. Контекстный процессор для шаблонов
 
-Чтобы в любом шаблоне было удобно использовать `current_user`, `is_master`, `is_agent` и текущий флаг регистрации, в `app.py` уже добавлен контекстный процессор:
+Чтобы в любом шаблоне было удобно использовать `current_user`, `is_admin` и текущий флаг регистрации, в `app.py` уже добавлен контекстный процессор:
 
 ```python
 @app.context_processor
 def inject():
     return {
         "current_user": current_user,
-        "is_master": is_master,
-        "is_agent": is_agent,
+        "is_admin": is_admin,
         "registration_open": get_registration_open(),
     }
 ```
@@ -320,9 +353,9 @@ def inject():
         {% if current_user() %}
           <a href="{{ url_for('dashboard') }}">Дашборд</a>
 
-          {% if is_master() %}
+          {% if is_admin() %}
             <a href="{{ url_for('admin_settings') }}">Настройки</a>
-            <a href="{{ url_for('admin_users') }}">Пользователи</a>
+            <a href="#">Пользователи</a>
           {% endif %}
 
           <span style="float: right;">
@@ -455,9 +488,84 @@ def inject():
 {% endblock %}
 ```
 
-#### `admin_settings.html` и `register.html`
+#### Так же заменяем `admin_settings.html`
 
-Шаблоны из шагов C1 и C2 также можно переписать через `extends "base.html"`, оставив в блоке `content` только собственную разметку формы. Структура `<html>`, `<head>`, `<body>` и навигация возьмутся из `base.html`.
+```html
+{% extends "base.html" %}
+
+{% block title %}Настройки · Учебное веб‑приложение{% endblock %}
+
+{% block content %}
+    <div class="card">
+      <h1>Настройки</h1>
+
+      <form method="post" action="{{ url_for('admin_settings_save') }}">
+        <label>
+          <input
+            type="checkbox"
+            name="registration_open"
+            {% if registration_open %}checked{% endif %}
+          />
+          Разрешить регистрацию новых пользователей
+        </label>
+
+        <div style="margin-top: 12px;">
+          <button type="submit">Сохранить</button>
+        </div>
+      </form>
+
+      <p style="margin-top: 16px;">
+        <a href="{{ url_for('dashboard') }}">Вернуться в дашборд</a>
+      </p>
+    </div>
+{% endblock %}
+```
+
+#### И заменяем `register.html`
+
+```html
+{% extends "base.html" %}
+
+{% block title %}Регистрация · Учебное веб‑приложение{% endblock %}
+
+{% block content %}
+    <div class="card">
+      <h1>Регистрация</h1>
+
+      {% if registration_disabled %}
+        <p>Регистрация временно закрыта. Попробуйте позже или обратитесь к администратору.</p>
+        <p><a href="{{ url_for('home') }}">На главную</a></p>
+      {% else %}
+        {% if error %}
+          <p style="color: darkred;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" action="{{ url_for('register') }}">
+          <div>
+            <label for="username">Логин</label><br />
+            <input id="username" name="username" required />
+          </div>
+
+          <div style="margin-top: 8px;">
+            <label for="password">Пароль</label><br />
+            <input id="password" name="password" type="password" required />
+          </div>
+
+          <div style="margin-top: 12px;">
+            <button type="submit">Создать аккаунт</button>
+          </div>
+        </form>
+
+        <p style="margin-top: 12px;">
+          Уже есть аккаунт?
+          <a href="{{ url_for('login_form') }}">Войти</a>
+        </p>
+      {% endif %}
+    </div>
+{% endblock %}
+```
+
+В итоге структура `<html>`, `<head>`, `<body>` и навигация возьмутся из `base.html`.
 
 **Проверка C3:**
 
