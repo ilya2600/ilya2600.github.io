@@ -226,9 +226,13 @@ def login_form_view():
 
 4. В начале `views_auth.py` добавьте необходимые импорты:
 
-   - `from flask import render_template, request, redirect, url_for, session, abort, flash` (нужное подберите по факту),
-   - `from auth_utils import is_logged_in, current_user, is_admin, get_registration_open, create_user`,
-   - `from db import get_conn`.
+```python
+from flask import render_template, request, redirect, url_for, session
+from auth_utils import is_logged_in, current_user, get_registration_open
+from db import get_conn
+from werkzeug.security import check_password_hash, generate_password_hash
+import sqlite3
+```
 
 ### Шаг E4.3. Упрощаем маршруты в `app.py`
 
@@ -323,15 +327,19 @@ def login_form_view():
 
 3. Внутрь каждой функции перенесите **тело** соответствующего маршрута из `app.py`:
 
+   - так же как в предыдущем шаге с view функциями
    - без декоратора,
    - с сохранением имени аргументов (например, `user_id`).
 
 4. В начале `views_admin.py` импортируйте всё нужное:
 
-   - `from flask import render_template, request, redirect, url_for, session, abort, flash`,
-   - `from datetime import datetime`,
-   - `from auth_utils import is_logged_in, is_admin, create_user`,
-   - `from db import get_conn`.
+```python
+from flask import render_template, request, redirect, url_for, abort, flash
+from auth_utils import is_logged_in, is_admin, get_registration_open, create_user
+from db import get_conn
+from datetime import datetime
+import sqlite3
+```.
 
 ### Шаг E5.3. Упрощаем админ‑маршруты в `app.py`
 
