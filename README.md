@@ -34,7 +34,7 @@
 - [Часть C: Бизнес‑логика и операции](md/GEN_PART_C.md)
 - [Часть D: Админ‑страница пользователей](md/GEN_PART_D.md)
 - [Часть E: Организация кода](md/GEN_PART_E.md)
-- [Landing](md/SLACKCHAT_LANDING.md)
+
 
 
 
