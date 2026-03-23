@@ -13,8 +13,8 @@
 
 Ссылка на пример презентации:
 - [на Google Презентации](https://docs.google.com/presentation/d/1MnPlq7UpM3-MQxRw6DWI8-X5UN_0p2HJwo98Kpv8Q0k)
-- [файл .pptx](other/example_present.pptx)
-- [файл .pdf](other/example_present.pdf)
+- [файл .pptx](/other/example_present.pptx)
+- [файл .pdf](/other/example_present.pdf)
 
 ## 2. Обязательная структура презентации
 
