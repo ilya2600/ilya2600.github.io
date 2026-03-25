@@ -1,3 +1,5 @@
+{% raw %}
+
 # ISSUE_FEEDBACK_2
 
 Ниже пошаговая инструкция по исправлению проблем из `PROJECT_ISSUES_AUDIT.md`.
@@ -434,4 +436,6 @@ def ensure_master():
 4. `fix(project-ui): correct archive/restore form actions`
 5. `chore(cleanup): remove static/app python duplicates`
 6. `chore(auth): load admin bootstrap credentials from env`
+
+{% endraw %}
 
